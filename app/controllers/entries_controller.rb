@@ -5,7 +5,7 @@ class EntriesController < ApplicationController
   # GET /entries
   # GET /entries.json
   def index
-    @entries = Entry.all.order('id desc').limit(20).reverse()
+    @entries = Entry.where(user_id: current_user.id).order('id desc').limit(20).reverse()
   end
 
   # GET /entries/1
@@ -16,6 +16,7 @@ class EntriesController < ApplicationController
   # GET /entries/new
   def new
     @entry = Entry.new
+    @entry.user = current_user
   end
 
   # GET /entries/1/edit
@@ -26,6 +27,7 @@ class EntriesController < ApplicationController
   # POST /entries.json
   def create
     @entry = Entry.new(entry_params)
+    @entry.user = current_user
 
     respond_to do |format|
       if @entry.save

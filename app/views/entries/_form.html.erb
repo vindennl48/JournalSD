@@ -27,13 +27,17 @@
   </div>
 
   <div class="field">
-    <%= form.label :category_id %>
-    <%= form.text_field :category_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+    <%#= form.label :category_id %>
+    <div><strong>Category</strong></div>
+    <div>
+      <%= form.select :category_id,
+        options_from_collection_for_select(Category.where(user_id: entry.user_id), :id, :name),
+        {}, { class: "" }
+      %>
+    </div>
+    <div>
+      <%= link_to "Add Category", new_category_path %>
+    </div>
   </div>
 
   <div class="actions">
