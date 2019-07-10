@@ -1,0 +1,5 @@
+<div class=" navbar ">
+  <div><%= link_to "Entries", entries_path %></div>
+  <div><%= link_to "Categores", categories_path %></div>
+  <div class=" logout "><%= link_to "Log Out", destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure you want to log out?' } %></div>
+</div>
