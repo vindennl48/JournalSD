@@ -81,5 +81,4 @@ test:
 production:
   <<: *default
   database: journalsd_production
-  username: journalsd
-  password: <%= ENV['JOURNALSD_DATABASE_PASSWORD'] %>
+  username: mitch
