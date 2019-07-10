@@ -21,9 +21,9 @@
       <tr>
         <td><%= entry.id %></td>
         <td><%= entry.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%a, %b %m %Y") %></td>
-        <td><%= entry.title %></td>
+        <td><%= entry.secret ? "****" : entry.title %></td>
         <td><%= entry.secret ? "Yes" : "No" %></td>
-        <td><%= entry.category.name %></td>
+        <td><%= entry.secret ? "****" : entry.category.name %></td>
         <td><%= link_to 'Show', entry %></td>
         <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
         <td><%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>

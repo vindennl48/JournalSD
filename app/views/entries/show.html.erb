@@ -1,29 +1,40 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @entry.title %>
-</p>
+<h4><%= @entry.title %></h4>
 
-<p>
-  <strong>Body:</strong>
-  <%= @entry.body %>
-</p>
+<br></br>
 
-<p>
-  <strong>Secret:</strong>
-  <%= @entry.secret %>
-</p>
+<div>
+<!-- 
+  <p><pre><%= @entry.body %></pre></p>
+-->
+  <pre><%= @entry.body %></pre>
+</div>
 
-<p>
-  <strong>Category:</strong>
-  <%= @entry.category %>
-</p>
+<br></br>
 
-<p>
-  <strong>User:</strong>
-  <%= @entry.user %>
-</p>
+<div style=" font-size: 12pt ">
 
-<%= link_to 'Edit', edit_entry_path(@entry) %> |
-<%= link_to 'Back', entries_path %>
+  <div>
+    <strong>Secret:</strong>
+    <%= @entry.secret %>
+  </div>
+
+  <div>
+    <strong>Category:</strong>
+    <%= @entry.category.name %>
+  </div>
+
+  <div>
+    <strong>User:</strong>
+    <%= @entry.user.email %>
+  </div>
+
+</div>
+
+<br></br>
+
+<div>
+  <%= link_to 'Edit', edit_entry_path(@entry) %> |
+  <%= link_to 'Back', entries_path %>
+</div>
